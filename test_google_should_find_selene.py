@@ -9,14 +9,13 @@ def browser_window():
     browser.config.window_height = 720
 
 
-
 def test_find_true(browser_window):
     browser.open('https://google.com')
     browser.element('[name="q"]').should(be.blank).type('yashaka/selene').press_enter()
     browser.element('[id="search"]').should(have.text('User-oriented Web UI browser tests in Python'))
 
 
-def test_find_false():
+def test_find_false(browser_window):
     type_text = 'dfbdsjfbdjbdsbdshfdshfbdhsfbhdf'
     browser.open('https://google.com')
     browser.element('[name="q"]').should(be.blank).type(type_text).press_enter()
